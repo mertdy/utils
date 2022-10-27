@@ -9,6 +9,7 @@
   "homepage": "https://github.com/mertdy/utils.git",
   "private": false,
   "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "scripts": {
     "preinstall": "npm run build",
     "build": "rimraf dist && tsc && tsc-alias",

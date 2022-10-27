@@ -1,0 +1,156 @@
+{
+  "root": true,
+  "ignorePatterns": [],
+  "overrides": [
+    // js-doc config
+    {
+      "files": ["*.ts"],
+      "extends": ["plugin:jsdoc/recommended"],
+      "rules": {
+        // js-doc
+        "jsdoc/no-undefined-types": "off"
+      }
+    },
+
+    // @typescript-eslint config
+    {
+      "files": ["*.ts"],
+      "parserOptions": {
+        "project": ["tsconfig.json", "tsconfig.app.json"],
+        "createDefaultProgram": true
+      },
+      "extends": [
+        "eslint:recommended",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:@typescript-eslint/recommended-requiring-type-checking"
+      ],
+      "rules": {
+        // Errors
+        "@typescript-eslint/explicit-function-return-type": [
+          "error",
+          {
+            "allowExpressions": true
+          }
+        ],
+        "@typescript-eslint/explicit-member-accessibility": [
+          "error",
+          {
+            "accessibility": "no-public"
+          }
+        ],
+        "@typescript-eslint/naming-convention": [
+          "error",
+          {
+            "selector": ["variable"],
+            "format": ["camelCase"]
+          },
+          {
+            "selector": ["variable"],
+            "modifiers": ["const"],
+            "format": ["camelCase", "UPPER_CASE", "PascalCase"]
+          },
+          {
+            "selector": ["function", "parameter"],
+            "format": ["camelCase"],
+            "leadingUnderscore": "allow"
+          },
+          {
+            "selector": ["typeLike"],
+            "format": ["PascalCase"]
+          },
+          {
+            "selector": "interface",
+            "format": ["PascalCase"],
+            "custom": {
+              "regex": "^I[A-Z]",
+              "match": false
+            }
+          },
+          {
+            "selector": "variable",
+            "types": ["boolean"],
+            "format": ["PascalCase"],
+            "prefix": ["is", "should", "has", "can", "did", "does", "will"]
+          }
+        ],
+        "@typescript-eslint/no-empty-function": [
+          "error",
+          { "allow": ["constructors"] }
+        ],
+
+        // Warnings
+        "@typescript-eslint/no-unused-vars": [
+          "off",
+          {
+            "argsIgnorePattern": "_"
+          }
+        ],
+        "@typescript-eslint/no-unsafe-member-access": 1,
+        "@typescript-eslint/no-unsafe-call": 1,
+        "@typescript-eslint/no-unsafe-argument": 1,
+        "@typescript-eslint/no-unsafe-assignment": 1
+      }
+    },
+
+    // importjs config
+    {
+      "files": ["*.ts"],
+      "extends": ["plugin:import/recommended", "plugin:import/typescript"],
+      "rules": {
+        "import/no-unresolved": "off",
+        "import/order": [
+          "error",
+          {
+            "groups": [
+              "builtin",
+              "external",
+              ["sibling", "parent"],
+              "index",
+              "internal",
+              "object",
+              "type"
+            ],
+            "newlines-between": "always",
+            "alphabetize": {
+              "order": "asc" /* sort in ascending order. Options: ['ignore', 'asc', 'desc'] */
+            },
+            "pathGroupsExcludedImportTypes": ["builtin"],
+            "pathGroups": [
+              {
+                "pattern": "@ionic/angular/**",
+                "group": "builtin"
+              },
+              {
+                "pattern": "@ionic/angular",
+                "group": "builtin"
+              },
+              {
+                "pattern": "@angular/material/**",
+                "group": "builtin",
+                "position": "before"
+              },
+              {
+                "pattern": "@angular/**",
+                "group": "builtin",
+                "position": "before"
+              },
+              {
+                "pattern": "@/**",
+                "group": "builtin",
+                "position": "after"
+              },
+              {
+                "pattern": "rxjs/**",
+                "group": "external"
+              },
+              {
+                "pattern": "rxjs",
+                "group": "external"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

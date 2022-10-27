@@ -1,0 +1,11 @@
+{
+  "recommendations": [
+    "esbenp.prettier-vscode",
+    "usernamehw.errorlens",
+    "donjayamanne.git-extension-pack",
+    "editorconfig.editorconfig",
+    "dbaeumer.vscode-eslint",
+    "xabikos.javascriptsnippets",
+    "sonarsource.sonarlint-vscode"
+  ]
+}

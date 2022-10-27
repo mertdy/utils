@@ -1,0 +1,30 @@
+{
+  "compileOnSave": false,
+  "include": ["./src"],
+  "exclude": ["./src/**/*.spec.ts"],
+  "ts-node": {
+    "require": ["tsconfig-paths/register"],
+    "extends": "./tsconfig.json",
+    "compilerOptions": {
+      "module": "CommonJS"
+    }
+  },
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": "./",
+    "esModuleInterop": true,
+    "outDir": "./dist",
+    "removeComments": true,
+    "declaration": true,
+    "downlevelIteration": true,
+    "experimentalDecorators": true,
+    "moduleResolution": "node",
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "CommonJS",
+    "lib": ["ESNext", "DOM"],
+    "paths": {
+      "@/*": ["src/*"]
+    }
+  }
+}

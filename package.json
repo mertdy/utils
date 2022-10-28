@@ -7,7 +7,6 @@
     "url": "https://github.com/mertdy/utils.git"
   },
   "homepage": "https://github.com/mertdy/utils.git",
-  "private": false,
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "scripts": {
